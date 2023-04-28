@@ -23,22 +23,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <nav className={styles.container}>
-        <ul>
-          <Link className={styles.mxclass} href={'/'}>
-            <li >Home</li>
-          </Link>
-          <Link className={styles.mxclass} href={'/about'}>
-            <li >About</li>
-          </Link>
-          <Link className={styles.mxclass} href={'/blog'}>
-            <li >Blog</li>
-          </Link>
-          <Link className={styles.mxclass} href={'/contact'}>
-            <li >Contact Us</li>
-          </Link>
-        </ul>
-      </nav>
+      
       <main className={`${styles.main} ${inter.className}`}>
 
         <div className={styles.center}>
