@@ -23,7 +23,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
+
       <main className={`${styles.main} ${inter.className}`}>
 
         <div className={styles.center}>
@@ -36,25 +36,6 @@ export default function Home() {
             />
           </div>
           <p >A blog for hunting Coders by a hunting Coder.</p>
-        </div>
-        <h2 className='popularBlogs'>Popular Blogs</h2>
-        <div className={styles.grid}>
-          <div className="container">
-            <h3>How to learn the javascript language ?</h3>
-            <p>This is the blog about learning the javascript for preparing the learning for the react js framework.</p>
-          </div>
-          <div className="container">
-            <h3>How to learn the javascript language ?</h3>
-            <p>This is the blog about learning the javascript for preparing the learning for the react js framework.</p>
-          </div>
-          <div className="container">
-            <h3>How to learn the javascript language ?</h3>
-            <p>This is the blog about learning the javascript for preparing the learning for the react js framework.</p>
-          </div>
-          <div className="container">
-            <h3>How to learn the javascript language ?</h3>
-            <p>This is the blog about learning the javascript for preparing the learning for the react js framework.</p>
-          </div>
         </div>
       </main>
     </>
