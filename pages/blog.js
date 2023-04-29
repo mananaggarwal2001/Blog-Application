@@ -60,7 +60,7 @@ const blog = () => {
         <div className={styles.grid}>
           {Blogs.map((blogitem) => {
             return (
-              <div className="container">
+              <div className="container" key={blogitem.slug}>
                 <Link className='LinkClass' href={`./blogPosts/${blogitem.slug}`}>
                   <h3 className='headingClass'>{blogitem.title}</h3>
                 </Link>
