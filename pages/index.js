@@ -1,8 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import Link from 'next/link'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -29,11 +27,8 @@ export default function Home() {
         <div className={styles.center}>
           <h1 className={styles.myClass}>Hunting Coders</h1>
           <div className={styles.imagewrap}>
-
-            <Image className={styles.myimg} src='/Images/homeimg.jpg'
-              width={437}
-              height={258}
-            />
+            <img className={styles.myimg} src="/Images/homeimg.jpg" alt="hunting coder image" width={437}
+              height={258}/>
           </div>
           <p >A blog for hunting Coders by a hunting Coder.</p>
         </div>

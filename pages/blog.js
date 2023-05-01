@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import * as fs from 'fs'
 // step1: collect all the files from the blog data directory
 // step2: Iterate through them and display them in the given blog directory.
 
@@ -67,12 +68,33 @@ const blog = (props) => {
   )
 }
 
-export async function getServerSideProps(context) {
-  let data = await fetch('http://localhost:3000/api/blogs');
-  let allBlogs = await data.json()
+
+export async function getStaticProps(context) {
+  const resultData = await fs.promises.readdir('blogData');
+  let allBlogs = []
+  let parsedBlogs = []
+  let eachResult;
+
+  try {
+    for (let index = 0; index < resultData.length; index++) {
+      eachResult = await fs.promises.readFile(`blogData/${resultData[index]}`, 'utf-8')
+      allBlogs.push(JSON.parse(eachResult))
+    }
+  } catch (error) {
+    console.log(error.message)
+  }
+
   return {
-    props: {allBlogs}
+    props:{allBlogs}
   }
 }
+
+// export async function getServerSideProps(context) {
+//   let data = await fetch('http://localhost:3000/api/blogs');
+//   let allBlogs = await data.json()
+//   return {
+//     props: {allBlogs}
+//   }
+// }
 
 export default blog
