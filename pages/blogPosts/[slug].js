@@ -2,33 +2,29 @@ import React, { useEffect, useState, useEffectX, useLayoutEffect } from 'react'
 import { useRouter } from 'next/router'
 //step 1:  find the file corresponding to the slug
 // Step 2: populate them with the respective urls given in the blogs website as when the user click then it will redirect to that webpage of the blog for reading the blog.
-const slug = () => {
-    const [blog, setBlog] = useState({
-        title: 'default',
-        content: 'default',
-        author: 'default',
-        slug: 'default'
-    })
-    const router = useRouter()
-    useEffect(() => {
-        if (!router.isReady)
-            return;
+const slug = (props) => {
+    console.log(props)
+    const [blog, setBlog] = useState(props.myBlog.parsedJsonData)
 
-        const { slug } = router.query;
-        fetch(`http://localhost:3000/api/getblog?slug=${slug}`).then(result => {
-            return result.json()
-        }).then((result2) => {
-            console.log(result2)
-            console.log("this is the result for the particular project.")
-            setBlog({
-                title: result2.title,
-                content: result2.content,
-                author: result2.author,
-                slug:result2.slug
-            })
-        })
+    // useEffect(() => {
+    //     if (!router.isReady)
+    //         return;
 
-    }, [router.isReady]) // if the router is ready then run the useEffect hook again for doing the further operations on the given blog.
+
+    //     fetch(``).then(result => {
+    //         return result.json()
+    //     }).then((result2) => {
+    //         console.log(result2)
+    //         console.log("this is the result for the particular project.")
+    //         setBlog({
+    //             title: result2.title,
+    //             content: result2.content,
+    //             author: result2.author,
+    //             slug: result2.slug
+    //         })
+    //     })
+
+    // }, [router.isReady]) // if the router is ready then run the useEffect hook again for doing the further operations on the given blog.
 
 
     return (
@@ -68,6 +64,26 @@ const slug = () => {
             </div>
         </>
     )
+}
+
+
+export async function getServerSideProps(context) {
+    const { slug } = context.query;
+    let result = await fetch(`http://localhost:3000/api/getblog?slug=${slug}`)
+    let myBlog;
+    try {
+
+        myBlog= await result.json()
+        console.log(myBlog)
+    } catch (error) {
+
+        console.log(error.message)
+    }
+
+    return {
+        props: {myBlog}
+    }
+
 }
 
 export default slug
