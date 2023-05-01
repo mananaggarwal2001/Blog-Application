@@ -74,9 +74,7 @@ export async function getServerSideProps(context) {
     try {
 
         myBlog= await result.json()
-        console.log(myBlog)
     } catch (error) {
-
         console.log(error.message)
     }
 
