@@ -5,6 +5,11 @@
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+  max-width: 60vw;
+  margin:auto;
+}
+.main> .center > p{
+  text-align: center;
 }
 
 .description {

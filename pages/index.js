@@ -30,7 +30,7 @@ export default function Home() {
             <img className={styles.myimg} src="/Images/homeimg.jpg" alt="hunting coder image" width={437}
               height={258}/>
           </div>
-          <p >A blog for hunting Coders by a hunting Coder.</p>
+          <p >A blog for hunting Coders by a hunting Coder. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum delectus iusto nemo cumque officiis, tempore placeat id voluptates magnam eius quisquam! Soluta, assumenda?</p>
         </div>
       </main>
     </>
